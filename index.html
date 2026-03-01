@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLQ | Solana-to-QRIS Payment Orchestrator</title>
+    <meta name="description"
+        content="Pay any QRIS merchant using Solana assets. Non-custodial, universal, and instant. Bridging the gap between blockchain and physical commerce.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo_q.png">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <img src="assets/logo_q.png" alt="SOLQ" style="height: 40px; width: auto;">
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="#how-it-works">How it Works</a>
+                <a href="#features">Features</a>
+                <a href="#security">Security</a>
+                <a href="https://github.com/nayrbryanGaming/solq" target="_blank" class="github-link">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container" style="display: flex; align-items: center; gap: 4rem;">
+            <div class="hero-content">
+                <span class="section-tag animate">Revolutionizing Payments</span>
+                <h1 class="animate">Solana Speed <br>meets <span>Physical Commerce</span></h1>
+                <p class="subtitle animate">The non-custodial orchestrator that bridges Solana to the Indonesian QRIS
+                    network. Spend your crypto anywhere, instantly.</p>
+                <div class="hero-btns animate">
+                    <a href="#how-it-works" class="btn btn-primary">Discover the Bridge</a>
+                </div>
+            </div>
+            <div class="hero-visual animate">
+                <img src="assets/logo_full.png" alt="SOLQ Branding"
+                    style="max-width: 80%; filter: drop-shadow(0 0 30px var(--primary));">
+            </div>
+        </div>
+    </header>
+
+    <section id="how-it-works">
+        <div class="container">
+            <span class="section-tag">Concept</span>
+            <h2>The Bridge to Daily Life</h2>
+            <p class="subtitle" style="max-width: 800px;">SOLQ connects high-liquidity Solana assets to local merchants
+                without forcing them to change a single thing. It's the ultimate off-ramp for the real world.</p>
+
+            <div class="flow animate">
+                <div class="flow-item">
+                    <div class="flow-icon">QR</div>
+                    <h4>Scan QRIS</h4>
+                    <p class="text-dim">User scans any physical QRIS code at a merchant.</p>
+                </div>
+                <div class="flow-arrow">&#8594;</div>
+                <div class="flow-item">
+                    <div class="flow-icon">⚡</div>
+                    <h4>Jupiter Swap</h4>
+                    <p class="text-dim">Your SOL/USDC is swapped to IDRX via Jupiter DEX.</p>
+                </div>
+                <div class="flow-arrow">&#8594;</div>
+                <div class="flow-item">
+                    <div class="flow-icon">💵</div>
+                    <h4>IDRX Settlement</h4>
+                    <p class="text-dim">Funds are settled to the merchant's account in Rupiah.</p>
+                </div>
+                <div class="flow-arrow">&#8594;</div>
+                <div class="flow-item">
+                    <div class="flow-icon">✓</div>
+                    <h4>Instant Success</h4>
+                    <p class="text-dim">Merchant receives payment; transaction complete.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="glass" style="border: none; border-radius: 0;">
+        <div class="container">
+            <span class="section-tag">Core Capabilities</span>
+            <h2>Designed for Trust and Speed</h2>
+
+            <div class="bento-grid">
+                <div class="feature-card glass animate" style="grid-column: span 4;">
+                    <h3>Non-Custodial</h3>
+                    <p>SOLQ is an orchestrator, not a wallet. We never hold your funds. Every transaction is a series of
+                        atomic signatures controlled by you.</p>
+                </div>
+                <div class="feature-card glass animate" style="grid-column: span 4;">
+                    <h3>Universal QRIS</h3>
+                    <p>Compatible with every QRIS-enabled merchant in Indonesia. From high-street boutiques to local
+                        coffee stalls.</p>
+                </div>
+                <div class="feature-card glass animate" style="grid-column: span 4;">
+                    <h3>Zero Friction</h3>
+                    <p>Merchants receive settlements in Rupiah as usual. They don't need to know anything about Solana
+                        or blockchain.</p>
+                </div>
+                <div class="feature-card glass animate" style="grid-column: span 6;">
+                    <h3>Powered by Jupiter</h3>
+                    <p>Leverages Solana's most powerful liquidity aggregator for the best exchange rates and minimal
+                        slippage during swaps.</p>
+                </div>
+                <div class="feature-card glass animate" style="grid-column: span 6;">
+                    <h3>IDRX Integration</h3>
+                    <p>Direct bridge to the most trusted Rupiah stablecoin for seamless settlement to the national
+                        payment rail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="security">
+        <div class="container" style="text-align: center;">
+            <span class="section-tag">Architecture</span>
+            <h2>Standardized Perfection</h2>
+            <p class="subtitle" style="margin: 0 auto 3rem;">Following the strictest coding standards to ensure safe,
+                deterministic, and 101% perfected execution.</p>
+            <div
+                style="max-width: 600px; margin: 0 auto; padding: 2rem; border-radius: 24px; background: rgba(153, 69, 255, 0.05); border: 1px solid var(--primary);">
+                <p style="font-family: monospace; color: var(--secondary); font-size: 1.2rem;">Atomic Transaction
+                    Orchestration</p>
+                <p style="margin-top: 1rem; color: var(--text-dim);">SOLQ simplifies complex on-chain logic into a
+                    single user action, ensuring that what you sign is what gets settled.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <a href="#" class="logo">
+                <img src="assets/logo_q.png" alt="SOLQ" style="height: 30px; width: auto; opacity: 0.8;">
+            </a>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">&copy; 2026 SOLQ Ecosystem. Built for the Future of
+                Commerce.</p>
+            <div class="footer-links">
+                <a href="https://github.com/nayrbryanGaming/solq" target="_blank">Core Repo</a>
+                <a href="https://github.com/nayrbryanGaming/solq.web.id" target="_blank">Web Repo</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
