@@ -1,14 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Navbar Scroll Effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
     // Intersection Observer for Animations
     const observerOptions = {
         threshold: 0.1,
@@ -25,35 +15,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
-    // Smooth Scrolling
+    // Simple scroll reveal for navbar background
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+            navbar.style.background = 'rgba(5, 5, 5, 0.9)';
+            navbar.style.backdropFilter = 'blur(10px)';
+            navbar.style.padding = '20px 0';
+        } else {
+            navbar.style.background = 'transparent';
+            navbar.style.backdropFilter = 'none';
+            navbar.style.padding = '30px 0';
+        }
+    });
+
+    // Handle smooth anchor scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
         });
     });
-
-    // Parallax Effect for Hero
-    const heroVisual = document.querySelector('.hero-visual img');
-    if (heroVisual) {
-        window.addEventListener('scroll', () => {
-            const scroll = window.scrollY;
-            heroVisual.style.transform = `translateY(${scroll * 0.1}px)`;
-        });
-    }
-
-    // Mobile Menu Toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-    }
 });
