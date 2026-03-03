@@ -47,4 +47,4 @@ The following are the official, registered trademarks and assets of SOLQ. Use on
 - **Clean Run Strategy**: `clean_run.ps1` for zero-cache production reliability.
 
 ---
-**Status: 101% LIVE | NO DUMMY | REAL MAINNET**
+**Status: 101% LIVE | REAL MAINNET PRODUCTION**
