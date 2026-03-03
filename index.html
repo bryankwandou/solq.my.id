@@ -13,14 +13,24 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="assets/logo_q.png">
 </head>
 
 <body>
     <nav id="navbar">
         <div class="container nav-content">
             <a href="#" class="logo">
-                <img src="assets/logo_full.png" alt="SOLQ Corporate Logo">
+                <!-- SOLQ Logo SVG - Inline to ensure it always loads -->
+                <svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" height="44">
+                    <defs>
+                        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#9945FF" />
+                            <stop offset="100%" style="stop-color:#14F199" />
+                        </linearGradient>
+                    </defs>
+                    <!-- S -->
+                    <text x="2" y="40" font-family="'Space Grotesk', sans-serif" font-size="46" font-weight="700"
+                        fill="url(#g1)">SOLQ</text>
+                </svg>
             </a>
             <div class="nav-links">
                 <a href="#how-it-works">Technology</a>
@@ -33,7 +43,7 @@
     <header class="hero">
         <div class="container hero-grid">
             <div class="hero-content animate">
-                <div class="badge">Official corporate tech</div>
+                <div class="badge">ASEAN Top-1 Fintech Orchestrator</div>
                 <h1>Solana Speed <br>Meets <span>QRIS Commerce</span></h1>
                 <p class="subtitle">The non-custodial orchestrator bridging Solana assets to over 20 million merchants
                     in Indonesia. Instant, secure, and 101% perfected.</p>
@@ -42,8 +52,46 @@
                 </div>
             </div>
             <div class="hero-visual animate">
-                <img src="assets/logo_full.png" alt="SOLQ Full Logo"
-                    style="max-width: 120%; filter: drop-shadow(0 0 50px rgba(153, 69, 255, 0.4));">
+                <!-- Hero logo SVG - Inline to ensure it always loads -->
+                <svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+                    <defs>
+                        <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#9945FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#14F199;stop-opacity:1" />
+                        </linearGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="15" result="coloredBlur" />
+                            <feMerge>
+                                <feMergeNode in="coloredBlur" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <!-- Outer ring -->
+                    <circle cx="250" cy="160" r="150" fill="none" stroke="url(#heroGrad)" stroke-width="2"
+                        opacity="0.3" />
+                    <circle cx="250" cy="160" r="120" fill="none" stroke="url(#heroGrad)" stroke-width="1"
+                        opacity="0.2" />
+                    <!-- Main logo text -->
+                    <text x="250" y="120" font-family="'Space Grotesk', sans-serif" font-size="90" font-weight="800"
+                        fill="url(#heroGrad)" text-anchor="middle" filter="url(#glow)">SOLQ</text>
+                    <!-- Tagline -->
+                    <text x="250" y="165" font-family="'Inter', sans-serif" font-size="16" fill="rgba(255,255,255,0.6)"
+                        text-anchor="middle" letter-spacing="3">PAYMENT ORCHESTRATOR</text>
+                    <!-- Solana & QRIS badges -->
+                    <rect x="100" y="195" width="100" height="30" rx="15" fill="rgba(153, 69, 255, 0.1)"
+                        stroke="rgba(153, 69, 255, 0.4)" stroke-width="1" />
+                    <text x="150" y="215" font-family="'Inter', sans-serif" font-size="12" fill="#9945FF"
+                        text-anchor="middle" font-weight="600">SOLANA</text>
+                    <rect x="300" y="195" width="100" height="30" rx="15" fill="rgba(20, 241, 153, 0.1)"
+                        stroke="rgba(20, 241, 153, 0.4)" stroke-width="1" />
+                    <text x="350" y="215" font-family="'Inter', sans-serif" font-size="12" fill="#14F199"
+                        text-anchor="middle" font-weight="600">QRIS</text>
+                    <!-- Bridge arrow -->
+                    <line x1="205" y1="210" x2="295" y2="210" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"
+                        stroke-dasharray="4" />
+                    <polygon points="295,205 305,210 295,215" fill="rgba(255,255,255,0.2)" />
+                </svg>
             </div>
         </div>
     </header>
@@ -56,19 +104,19 @@
                     <div class="step-num">01</div>
                     <div class="step-icon">📱</div>
                     <h3>Scan QRIS</h3>
-                    <p>Scan any standard Indonesian QRIS code instantly.</p>
+                    <p>Scan any standard Indonesian QRIS code at any merchant, instantly.</p>
                 </div>
                 <div class="flow-step">
                     <div class="step-num">02</div>
                     <div class="step-icon">⚡</div>
                     <h3>Jupiter Swap</h3>
-                    <p>Your assets are swapped to IDRX via Jupiter DEX aggregator.</p>
+                    <p>Your assets are swapped to IDRX via Jupiter DEX aggregator at best rate.</p>
                 </div>
                 <div class="flow-step">
                     <div class="step-num">03</div>
                     <div class="step-icon">🏦</div>
-                    <h3>Instant Settle</h3>
-                    <p>Merchant receives Rupiah settlement in real-time.</p>
+                    <h3>IDR Settlement</h3>
+                    <p>Merchant receives Rupiah settlement via national banking rails. Instant.</p>
                 </div>
             </div>
         </div>
@@ -81,17 +129,35 @@
                 <div class="feature-card glass">
                     <div class="icon">🛡️</div>
                     <h3>Non-Custodial</h3>
-                    <p>Your keys, your control. We never hold your funds. A pure technical orchestrator.</p>
+                    <p>Your keys, your control. We never hold your funds. A pure technical orchestrator with zero
+                        custody risk.</p>
                 </div>
                 <div class="feature-card glass">
                     <div class="icon">⚡</div>
-                    <h3>Finality</h3>
-                    <p>Leveraging Solana's sub-second speed for a seamless physical commerce experience.</p>
+                    <h3>Sub-Second</h3>
+                    <p>Leveraging Solana's ultra-low latency for a seamless physical commerce experience faster than any
+                        card.</p>
                 </div>
                 <div class="feature-card glass">
                     <div class="icon">📈</div>
                     <h3>Universal</h3>
-                    <p>Compatible with every QRIS merchant in Indonesia. Zero friction adoption.</p>
+                    <p>Compatible with every QRIS merchant in Indonesia — over 22 million points of acceptance. Zero
+                        friction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech">
+        <div class="container text-center">
+            <div class="tech-powered glass animate">
+                <p class="section-label">Powered By</p>
+                <div class="tech-logos">
+                    <span class="tech-item">SOLANA</span>
+                    <span class="tech-divider">×</span>
+                    <span class="tech-item">JUPITER</span>
+                    <span class="tech-divider">×</span>
+                    <span class="tech-item">IDRX</span>
                 </div>
             </div>
         </div>
@@ -100,16 +166,26 @@
     <footer>
         <div class="container footer-grid">
             <div class="footer-brand">
-                <img src="assets/logo_full.png" alt="SOLQ" class="footer-logo">
+                <svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" height="36" class="footer-logo-svg">
+                    <defs>
+                        <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#9945FF" />
+                            <stop offset="100%" style="stop-color:#14F199" />
+                        </linearGradient>
+                    </defs>
+                    <text x="2" y="40" font-family="'Space Grotesk', sans-serif" font-size="46" font-weight="700"
+                        fill="url(#footerGrad)">SOLQ</text>
+                </svg>
                 <p>Establishing the standard for digital asset commerce in Southeast Asia.</p>
             </div>
             <div class="footer-links">
-                <a href="https://github.com/nayrbryanGaming/solq">Protocol</a>
-                <a href="https://github.com/nayrbryanGaming/solq.my.id">Portal</a>
+                <h4>Ecosystem</h4>
+                <a href="https://github.com/nayrbryanGaming/solq">Protocol Core</a>
+                <a href="https://github.com/nayrbryanGaming/solq.my.id">Portal Web</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 SOLQ Ecosystem. All rights reserved.</p>
+            <p>&copy; 2026 SOLQ Ecosystem. All rights reserved. Built for Indonesian Commerce.</p>
         </div>
     </footer>
 
