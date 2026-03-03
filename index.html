@@ -4,188 +4,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLQ | Solana-to-QRIS Payment Bridge</title>
+    <title>SOLQ | Solana-to-QRIS Payment Orchestrator</title>
     <meta name="description"
-        content="ASEAN Top-1 Solana-to-QRIS payment orchestrator. Non-custodial, instant, and universal.">
+        content="SOLQ scans QRIS, orchestrates wallet authorization and on-chain swaps, and delegates rupiah settlement — without holding funds. Live Mainnet Beta.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <nav id="navbar">
         <div class="container nav-content">
-            <a href="#" class="logo">
-                <!-- SOLQ Logo SVG - Inline to ensure it always loads -->
-                <svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" height="44">
+            <a href="#" class="logo-link">
+                <svg class="nav-logo" viewBox="0 0 200 56" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#9945FF" />
-                            <stop offset="100%" style="stop-color:#14F199" />
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#9945FF" />
+                            <stop offset="100%" stop-color="#14F199" />
                         </linearGradient>
                     </defs>
-                    <!-- S -->
-                    <text x="2" y="40" font-family="'Space Grotesk', sans-serif" font-size="46" font-weight="700"
-                        fill="url(#g1)">SOLQ</text>
+                    <text x="4" y="44" font-family="'Space Grotesk', sans-serif" font-size="52" font-weight="800"
+                        fill="url(#logoGrad)">SOLQ</text>
                 </svg>
             </a>
             <div class="nav-links">
-                <a href="#how-it-works">Technology</a>
+                <a href="#protocol">Protocol</a>
                 <a href="#features">Features</a>
-                <a href="https://github.com/nayrbryanGaming/solq" target="_blank" class="btn-nav">Core Portal</a>
+                <a href="#architecture">Architecture</a>
+                <a href="https://github.com/nayrbryanGaming/solq" target="_blank" class="btn-nav">View Source</a>
             </div>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container hero-grid">
-            <div class="hero-content animate">
-                <div class="badge">ASEAN Top-1 Fintech Orchestrator</div>
-                <h1>Solana Speed <br>Meets <span>QRIS Commerce</span></h1>
-                <p class="subtitle">The non-custodial orchestrator bridging Solana assets to over 20 million merchants
-                    in Indonesia. Instant, secure, and 101% perfected.</p>
-                <div class="hero-actions">
-                    <a href="#how-it-works" class="btn btn-primary">Discover the Protocol</a>
+            <div class="hero-content reveal">
+                <div class="status-badge">
+                    <span class="pulse-dot"></span>
+                    LIVE MAINNET BETA
                 </div>
+                <h1>Real-Time Solana<br>to <span class="grad-text">QRIS Settlement</span></h1>
+                <p class="subtitle">SOLQ bridges the gap between Solana wallets and Indonesia's QRIS payment network. No
+                    intermediate custody. No merchant onboarding. No behavior change.</p>
+                <div class="hero-cta">
+                    <a href="#protocol" class="btn-primary">Explore Protocol</a>
+                    <a href="https://github.com/nayrbryanGaming/solq" target="_blank" class="btn-ghost">View on
+                        GitHub</a>
+                </div>
+                <p class="tagline-fine">Strictly No Mocks. No Simulations. Real Value Transfer Only.</p>
             </div>
-            <div class="hero-visual animate">
-                <!-- Hero logo SVG - Inline to ensure it always loads -->
-                <svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
-                    <defs>
-                        <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#9945FF;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#14F199;stop-opacity:1" />
-                        </linearGradient>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="15" result="coloredBlur" />
-                            <feMerge>
-                                <feMergeNode in="coloredBlur" />
-                                <feMergeNode in="SourceGraphic" />
-                            </feMerge>
-                        </filter>
-                    </defs>
-                    <!-- Outer ring -->
-                    <circle cx="250" cy="160" r="150" fill="none" stroke="url(#heroGrad)" stroke-width="2"
-                        opacity="0.3" />
-                    <circle cx="250" cy="160" r="120" fill="none" stroke="url(#heroGrad)" stroke-width="1"
-                        opacity="0.2" />
-                    <!-- Main logo text -->
-                    <text x="250" y="120" font-family="'Space Grotesk', sans-serif" font-size="90" font-weight="800"
-                        fill="url(#heroGrad)" text-anchor="middle" filter="url(#glow)">SOLQ</text>
-                    <!-- Tagline -->
-                    <text x="250" y="165" font-family="'Inter', sans-serif" font-size="16" fill="rgba(255,255,255,0.6)"
-                        text-anchor="middle" letter-spacing="3">PAYMENT ORCHESTRATOR</text>
-                    <!-- Solana & QRIS badges -->
-                    <rect x="100" y="195" width="100" height="30" rx="15" fill="rgba(153, 69, 255, 0.1)"
-                        stroke="rgba(153, 69, 255, 0.4)" stroke-width="1" />
-                    <text x="150" y="215" font-family="'Inter', sans-serif" font-size="12" fill="#9945FF"
-                        text-anchor="middle" font-weight="600">SOLANA</text>
-                    <rect x="300" y="195" width="100" height="30" rx="15" fill="rgba(20, 241, 153, 0.1)"
-                        stroke="rgba(20, 241, 153, 0.4)" stroke-width="1" />
-                    <text x="350" y="215" font-family="'Inter', sans-serif" font-size="12" fill="#14F199"
-                        text-anchor="middle" font-weight="600">QRIS</text>
-                    <!-- Bridge arrow -->
-                    <line x1="205" y1="210" x2="295" y2="210" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"
-                        stroke-dasharray="4" />
-                    <polygon points="295,205 305,210 295,215" fill="rgba(255,255,255,0.2)" />
-                </svg>
+            <div class="hero-diagram reveal">
+                <div class="arch-box">
+                    <svg viewBox="0 0 440 360" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#9945FF" stop-opacity="0.15" />
+                                <stop offset="100%" stop-color="#14F199" stop-opacity="0.05" />
+                            </linearGradient>
+                            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#9945FF" />
+                                <stop offset="100%" stop-color="#14F199" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Node backgrounds -->
+                        <rect x="10" y="30" width="140" height="54" rx="10" fill="rgba(153,69,255,0.08)"
+                            stroke="rgba(153,69,255,0.3)" stroke-width="1" />
+                        <rect x="150" y="10" width="140" height="54" rx="10" fill="rgba(255,255,255,0.03)"
+                            stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                        <rect x="290" y="30" width="140" height="54" rx="10" fill="rgba(20,241,153,0.08)"
+                            stroke="rgba(20,241,153,0.3)" stroke-width="1" />
+                        <rect x="10" y="160" width="140" height="54" rx="10" fill="rgba(255,255,255,0.03)"
+                            stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                        <rect x="150" y="180" width="140" height="54" rx="10" fill="rgba(153,69,255,0.08)"
+                            stroke="rgba(153,69,255,0.3)" stroke-width="1" />
+                        <rect x="290" y="160" width="140" height="54" rx="10" fill="rgba(20,241,153,0.08)"
+                            stroke="rgba(20,241,153,0.3)" stroke-width="1" />
+                        <!-- SOLQ central label -->
+                        <text x="220" y="108" font-family="'Space Grotesk', sans-serif" font-size="26" font-weight="800"
+                            fill="url(#lineGrad)" text-anchor="middle">SOLQ</text>
+                        <text x="220" y="130" font-family="'Inter', sans-serif" font-size="11"
+                            fill="rgba(255,255,255,0.35)" text-anchor="middle" letter-spacing="2">ORCHESTRATOR</text>
+                        <!-- Node labels -->
+                        <text x="80" y="52" font-family="'Inter', sans-serif" font-size="11" font-weight="600"
+                            fill="#C4A0FF" text-anchor="middle">User Wallet</text>
+                        <text x="80" y="70" font-family="'Inter', sans-serif" font-size="10"
+                            fill="rgba(255,255,255,0.4)" text-anchor="middle">Solana / Phantom</text>
+                        <text x="220" y="32" font-family="'Inter', sans-serif" font-size="11" font-weight="600"
+                            fill="rgba(255,255,255,0.7)" text-anchor="middle">Jupiter DEX</text>
+                        <text x="220" y="50" font-family="'Inter', sans-serif" font-size="10"
+                            fill="rgba(255,255,255,0.4)" text-anchor="middle">On-Chain Swap</text>
+                        <text x="360" y="52" font-family="'Inter', sans-serif" font-size="11" font-weight="600"
+                            fill="#5DFDBE" text-anchor="middle">IDRX Stablecoin</text>
+                        <text x="360" y="70" font-family="'Inter', sans-serif" font-size="10"
+                            fill="rgba(255,255,255,0.4)" text-anchor="middle">Rupiah-Pegged</text>
+                        <text x="80" y="182" font-family="'Inter', sans-serif" font-size="11" font-weight="600"
+                            fill="rgba(255,255,255,0.7)" text-anchor="middle">Settlement Rail</text>
+                        <text x="80" y="200" font-family="'Inter', sans-serif" font-size="10"
+                            fill="rgba(255,255,255,0.4)" text-anchor="middle">Partner Network</text>
+                        <text x="220" y="202" font-family="'Inter', sans-serif" font-size="11" font-weight="600"
+                            fill="#C4A0FF" text-anchor="middle">QRIS Code</text>
+                        <text x="220" y="220" font-family="'Inter', sans-serif" font-size="10"
+                            fill="rgba(255,255,255,0.4)" text-anchor="middle">EMVCo Standard</text>
+                        <text x="360" y="182" font-family="'Inter', sans-serif" font-size="11" font-weight="600"
+                            fill="#5DFDBE" text-anchor="middle">Merchant Bank</text>
+                        <text x="360" y="200" font-family="'Inter', sans-serif" font-size="10"
+                            fill="rgba(255,255,255,0.4)" text-anchor="middle">IDR Settlement</text>
+                        <!-- Connection lines -->
+                        <line x1="150" y1="57" x2="150" y2="37" stroke="url(#lineGrad)" stroke-width="1.5"
+                            opacity="0.5" />
+                        <line x1="290" y1="37" x2="290" y2="57" stroke="url(#lineGrad)" stroke-width="1.5"
+                            opacity="0.5" />
+                        <line x1="150" y1="207" x2="150" y2="210" stroke="rgba(153,69,255,0.4)" stroke-width="1.5" />
+                        <!-- State machine bottom strip -->
+                        <rect x="10" y="295" width="420" height="50" rx="10" fill="rgba(255,255,255,0.03)"
+                            stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+                        <text x="220" y="314" font-family="'Inter', sans-serif" font-size="10"
+                            fill="rgba(255,255,255,0.3)" text-anchor="middle" letter-spacing="1">STATE MACHINE</text>
+                        <text x="220" y="335" font-family="'Inter', sans-serif" font-size="11"
+                            fill="rgba(255,255,255,0.5)" text-anchor="middle">CREATED → AUTHORIZED → AWAITING_SETTLEMENT
+                            → COMPLETED</text>
+                    </svg>
+                </div>
             </div>
         </div>
     </header>
 
-    <section id="how-it-works">
+    <section id="protocol" class="section-protocol">
         <div class="container">
-            <h2 class="text-center animate">The Atomic Standard</h2>
-            <div class="flow-container animate">
-                <div class="flow-step">
-                    <div class="step-num">01</div>
-                    <div class="step-icon">📱</div>
-                    <h3>Scan QRIS</h3>
-                    <p>Scan any standard Indonesian QRIS code at any merchant, instantly.</p>
+            <div class="section-label">Payment Flow</div>
+            <h2 class="reveal">End-to-End Process</h2>
+            <div class="steps-grid reveal">
+                <div class="step-card">
+                    <div class="step-n">01</div>
+                    <h3>Connect Wallet</h3>
+                    <p>Connect any supported Solana wallet: Phantom, Solflare, Binance Web3, OKX, Trust Wallet, Bybit,
+                        or Gate.io. SOLQ never touches private keys.</p>
                 </div>
-                <div class="flow-step">
-                    <div class="step-num">02</div>
-                    <div class="step-icon">⚡</div>
-                    <h3>Jupiter Swap</h3>
-                    <p>Your assets are swapped to IDRX via Jupiter DEX aggregator at best rate.</p>
+                <div class="step-card">
+                    <div class="step-n">02</div>
+                    <h3>Scan QRIS Code</h3>
+                    <p>Point camera at any standard QRIS code — GoPay, Dana, BCA, or any merchant. SOLQ parses the EMVCo
+                        payload and detects Dynamic vs Static QRIS automatically.</p>
                 </div>
-                <div class="flow-step">
-                    <div class="step-num">03</div>
-                    <div class="step-icon">🏦</div>
-                    <h3>IDR Settlement</h3>
-                    <p>Merchant receives Rupiah settlement via national banking rails. Instant.</p>
+                <div class="step-card">
+                    <div class="step-n">03</div>
+                    <h3>Review Live Quote</h3>
+                    <p>CoinGecko oracle provides real-time pricing. Jupiter quotes are verified against market rates
+                        with less than 2% tolerance. Slippage fixed at 0.5%.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-n">04</div>
+                    <h3>Authorize & Sign</h3>
+                    <p>Tap "Launch External Wallet". Your wallet app signs the transaction. SOLQ only requests
+                        authorization — it never executes without your explicit signature.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-n">05</div>
+                    <h3>On-Chain Execution</h3>
+                    <p>Jupiter ExactOut swap executes: SOL/USDC → IDRX. Settlement is delegated to licensed partner
+                        rails. Blockchain confirmation in approximately 3–10 seconds.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-n">06</div>
+                    <h3>Settlement Complete</h3>
+                    <p>The backend polls Solana RPC to confirm transaction finality. The "Settlement Completed" screen
+                        appears only after on-chain confirmation is secured.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="dark-section">
+    <section id="features" class="section-dark">
         <div class="container">
-            <h2 class="text-center animate">ASEAN Top-1 Fintech</h2>
-            <div class="feature-grid animate">
-                <div class="feature-card glass">
-                    <div class="icon">🛡️</div>
-                    <h3>Non-Custodial</h3>
-                    <p>Your keys, your control. We never hold your funds. A pure technical orchestrator with zero
-                        custody risk.</p>
+            <div class="section-label">Core Implementation</div>
+            <h2 class="reveal">Technical Architecture</h2>
+            <div class="features-grid reveal">
+                <div class="feat-card">
+                    <div class="feat-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="14" cy="14" r="13" stroke="#9945FF" stroke-width="1.5" />
+                            <path d="M8 14C8 10.686 10.686 8 14 8C17.314 8 20 10.686 20 14" stroke="#14F199"
+                                stroke-width="1.5" stroke-linecap="round" />
+                            <circle cx="14" cy="14" r="3" fill="#9945FF" />
+                        </svg>
+                    </div>
+                    <h3>Universal Wallet Connectivity</h3>
+                    <p>Supports Phantom, Solflare, Binance Web3, OKX, Trust Wallet, Bybit, and Gate.io via Android
+                        Intent Filters. Protocol uses deep linking — SOLQ never has access to private keys.</p>
                 </div>
-                <div class="feature-card glass">
-                    <div class="icon">⚡</div>
-                    <h3>Sub-Second</h3>
-                    <p>Leveraging Solana's ultra-low latency for a seamless physical commerce experience faster than any
-                        card.</p>
+                <div class="feat-card">
+                    <div class="feat-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="22" height="22" rx="5" stroke="#9945FF" stroke-width="1.5" />
+                            <path d="M8 18L12 14L15 17L20 11" stroke="#14F199" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3>Real-Time Oracle Pricing</h3>
+                    <p>CoinGecko API powers live price feeds. Jupiter quotes are cross-validated against market rates
+                        with a strict tolerance of less than 2%. Slippage is fixed at 0.5% for reliability.</p>
                 </div>
-                <div class="feature-card glass">
-                    <div class="icon">📈</div>
-                    <h3>Universal</h3>
-                    <p>Compatible with every QRIS merchant in Indonesia — over 22 million points of acceptance. Zero
-                        friction.</p>
+                <div class="feat-card">
+                    <div class="feat-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 4L24 9V19L14 24L4 19V9L14 4Z" stroke="#9945FF" stroke-width="1.5" />
+                            <path d="M14 4V24M4 9L24 19M24 9L4 19" stroke="#14F199" stroke-width="1" opacity="0.4" />
+                        </svg>
+                    </div>
+                    <h3>On-Chain Settlement Abstraction</h3>
+                    <p>Flow: SOL/USDC → Jupiter ExactOut Swap → IDRX (Rupiah Stablecoin) → Licensed Settlement Partner.
+                        Backend confirms finality via Solana RPC polling before completing the transaction.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="4" width="16" height="20" rx="3" stroke="#9945FF" stroke-width="1.5" />
+                            <path d="M10 10H18M10 14H18M10 18H14" stroke="#14F199" stroke-width="1.5"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3>QRIS Intelligence — Mata Pinter</h3>
+                    <p>EMVCo-compliant QRIS parser. Detects Tag 54 for Dynamic QRIS (amount locked) vs. Static QRIS
+                        (user inputs amount). Routes settlement via extracted merchant PAN and account identifiers.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 3L25 8.5V19.5L14 25L3 19.5V8.5L14 3Z" stroke="#9945FF" stroke-width="1.5"
+                                stroke-linejoin="round" />
+                            <path d="M14 8V14L18 17" stroke="#14F199" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3>Auditable State Machine</h3>
+                    <p>All payments follow a strict, auditable state sequence: CREATED → AUTHORIZATION_REQUESTED →
+                        AUTHORIZED → AWAITING_SETTLEMENT → COMPLETED. No state skipping. No ambiguous transitions.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 4C8.477 4 4 8.477 4 14C4 19.523 8.477 24 14 24C19.523 24 24 19.523 24 14"
+                                stroke="#9945FF" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M18 4L24 4L24 10" stroke="#14F199" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M24 4L16 12" stroke="#14F199" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3>Non-Custodial by Design</h3>
+                    <p>SOLQ does not store balances, does not custody funds, does not act as an e-wallet, and does not
+                        issue QR codes. It only requests authorization, orchestrates execution, and delegates
+                        settlement.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tech">
-        <div class="container text-center">
-            <div class="tech-powered glass animate">
-                <p class="section-label">Powered By</p>
-                <div class="tech-logos">
-                    <span class="tech-item">SOLANA</span>
-                    <span class="tech-divider">×</span>
-                    <span class="tech-item">JUPITER</span>
-                    <span class="tech-divider">×</span>
-                    <span class="tech-item">IDRX</span>
+    <section id="architecture" class="section-stack">
+        <div class="container">
+            <div class="section-label">Infrastructure</div>
+            <h2 class="reveal">Tech Stack</h2>
+            <div class="stack-grid reveal">
+                <div class="stack-item">
+                    <div class="stack-label">Frontend</div>
+                    <div class="stack-value">Flutter — Immersive Mode, Native Android Intent Handling</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-label">Backend</div>
+                    <div class="stack-value">Node.js + Express — Solana Service, Price Oracle</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-label">Blockchain</div>
+                    <div class="stack-value">Solana Mainnet-Beta — Sub-second finality</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-label">Pricing</div>
+                    <div class="stack-value">CoinGecko API — simple/price endpoint, less than 2% tolerance</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-label">Swap</div>
+                    <div class="stack-value">Jupiter DEX — ExactOut swap, 0.5% fixed slippage</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-label">Compliance</div>
+                    <div class="stack-value">Non-Custodial / Decentralized Orchestration — No license required</div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="section-posture">
+        <div class="container">
+            <div class="posture-grid reveal">
+                <div class="posture-col">
+                    <h3>SOLQ Is</h3>
+                    <ul>
+                        <li>A real-time payment orchestrator</li>
+                        <li>Consumer-side only software</li>
+                        <li>Non-custodial by design</li>
+                        <li>QRIS-native infrastructure</li>
+                        <li>Regulator-conscious architecture</li>
+                    </ul>
+                </div>
+                <div class="posture-col posture-right">
+                    <h3>SOLQ Is Not</h3>
+                    <ul>
+                        <li>Not a POS system</li>
+                        <li>Not a merchant app</li>
+                        <li>Not a custodial wallet</li>
+                        <li>Not an exchange</li>
+                        <li>Not a payment gateway replacing QRIS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-summary">
+        <div class="container">
+            <blockquote class="reveal">
+                SOLQ scans QRIS, orchestrates wallet authorization and on-chain swaps, and delegates rupiah settlement —
+                without holding funds.
+            </blockquote>
         </div>
     </section>
 
     <footer>
-        <div class="container footer-grid">
+        <div class="container footer-content">
             <div class="footer-brand">
-                <svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" height="36" class="footer-logo-svg">
+                <svg class="footer-logo-svg" viewBox="0 0 200 56" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#9945FF" />
-                            <stop offset="100%" style="stop-color:#14F199" />
+                            <stop offset="0%" stop-color="#9945FF" />
+                            <stop offset="100%" stop-color="#14F199" />
                         </linearGradient>
                     </defs>
-                    <text x="2" y="40" font-family="'Space Grotesk', sans-serif" font-size="46" font-weight="700"
+                    <text x="4" y="44" font-family="'Space Grotesk', sans-serif" font-size="52" font-weight="800"
                         fill="url(#footerGrad)">SOLQ</text>
                 </svg>
-                <p>Establishing the standard for digital asset commerce in Southeast Asia.</p>
+                <p>Real Mainnet Consumer Payment Orchestrator.<br>Closed Source / Proprietary. All rights reserved.</p>
             </div>
-            <div class="footer-links">
-                <h4>Ecosystem</h4>
-                <a href="https://github.com/nayrbryanGaming/solq">Protocol Core</a>
-                <a href="https://github.com/nayrbryanGaming/solq.my.id">Portal Web</a>
+            <div class="footer-links-col">
+                <h4>Repository</h4>
+                <a href="https://github.com/nayrbryanGaming/solq" target="_blank">Core Protocol</a>
+                <a href="https://github.com/nayrbryanGaming/solq.my.id" target="_blank">Web Portal</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 SOLQ Ecosystem. All rights reserved. Built for Indonesian Commerce.</p>
+            <div class="container">
+                <p>&copy; 2026 SOLQ. All rights reserved. Built for Indonesian Commerce. Strictly No Mocks. No
+                    Simulations.</p>
+            </div>
         </div>
     </footer>
 
