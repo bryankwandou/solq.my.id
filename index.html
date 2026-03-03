@@ -20,7 +20,7 @@
     <nav id="navbar">
         <div class="container nav-content">
             <a href="#" class="logo-link">
-                <img src="assets/logo_full.jpg" alt="SOLQ — Solana-Based Payments" class="nav-logo-img">
+                <img src="assets/logo_full.png" alt="SOLQ — Solana-Based Payments" class="nav-logo-img">
             </a>
             <div class="nav-links">
                 <a href="#protocol">Protocol</a>
@@ -50,7 +50,7 @@
             </div>
             <div class="hero-diagram reveal">
                 <div class="hero-logo-box">
-                    <img src="assets/logo_full.jpg" alt="SOLQ — Solana-Based Payments Official Corporate Logo"
+                    <img src="assets/logo_full.png" alt="SOLQ — Solana-Based Payments Official Corporate Logo"
                         class="hero-logo-img">
                     <div class="hero-logo-tag">
                         <span class="pulse-dot"></span>
@@ -113,10 +113,10 @@
                 </div>
                 <div class="step-card">
                     <div class="step-n">06</div>
-                    <h3>Settlement Complete</h3>
-                    <p>Backend polls Solana RPC for finality. Status changes to COMPLETED only after on-chain
-                        confirmation and IDRX lands in Treasury. Digital receipt with Transaction Hash and Solana FM
-                        link is shown.</p>
+                    <h3>Settlement & Receipt</h3>
+                    <p>Setelah transaksi on-chain sukses, aplikasi menampilkan struk digital dengan detail ID Merchant
+                        dan Transaction Hash. User bisa langsung mengklik link untuk melihat bukti transaksi di Solana
+                        Explorer secara nyata.</p>
                 </div>
             </div>
         </div>
@@ -136,10 +136,10 @@
                 </div>
                 <div class="feat-card">
                     <div class="feat-line"></div>
-                    <h3>Real-Time Oracle Pricing</h3>
-                    <p>CoinGecko API (simple/price), Jupiter V2 quotes cross-validated with &lt;2% tolerance. Slippage
-                        fixed at 0.5%. Circuit Breaker hard-blocks payment if deviation exceeds threshold — protects
-                        against Price Oracle Attacks and DEX manipulation.</p>
+                    <h3>No Halu: Hardened Price Discovery</h3>
+                    <p>Oracle Multi-Source: CoinGecko SOL/USDC, Jupiter rute swap terbaik, dan kurs IDR dari
+                        ExchangeRate API. Circuit Breaker (2%): Jika swap menyimpang &gt; 2% dari harga pasar global,
+                        transaksi DIBLOKIR OTOMATIS mencegah kerugian user.</p>
                 </div>
                 <div class="feat-card">
                     <div class="feat-line"></div>
@@ -276,7 +276,7 @@
     <footer>
         <div class="container footer-content">
             <div class="footer-brand">
-                <img src="assets/logo_full.jpg" alt="SOLQ Corporate Logo" class="footer-logo-img">
+                <img src="assets/logo_full.png" alt="SOLQ Corporate Logo" class="footer-logo-img">
                 <p>Real Mainnet Consumer Payment Orchestrator.<br>Closed Source / Proprietary. All rights reserved.</p>
             </div>
             <div class="footer-links-col">
