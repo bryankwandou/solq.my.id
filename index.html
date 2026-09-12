@@ -13,6 +13,21 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var theme = 'dark';
+            var lang = 'en';
+            try {
+                theme = localStorage.getItem('solq-theme') ||
+                    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                lang = localStorage.getItem('solq-lang') ||
+                    ((navigator.language || 'en').toLowerCase().indexOf('id') === 0 ? 'id' : 'en');
+            } catch (e) { }
+            root.setAttribute('data-theme', theme);
+            root.setAttribute('lang', lang);
+        })();
+    </script>
 </head>
 
 <body>
@@ -23,10 +38,22 @@
                 <img src="assets/logo_full.png" alt="SOLQ Corporate Logo" class="nav-logo-img">
             </a>
             <div class="nav-links">
-                <a href="#protocol">Protocol</a>
-                <a href="#features">Features</a>
-                <a href="#architecture">Architecture</a>
-                <a href="https://github.com/nayrbryanGaming/solq" target="_blank" class="btn-nav">View Source</a>
+                <a href="#protocol" data-i18n="nav.protocol">Protocol</a>
+                <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
+                <a href="https://github.com/nayrbryanGaming/solq" target="_blank" class="btn-nav"
+                    data-i18n="nav.source">View Source</a>
+                <div class="nav-controls">
+                    <button id="lang-toggle" class="ctrl-btn" type="button" data-i18n-aria="a11y.lang"
+                        aria-label="Switch language">
+                        <span id="lang-label">EN</span>
+                    </button>
+                    <button id="theme-toggle" class="ctrl-btn" type="button" data-i18n-aria="a11y.theme"
+                        aria-label="Switch theme">
+                        <span class="theme-icon-dark" aria-hidden="true">&#9790;</span>
+                        <span class="theme-icon-light" aria-hidden="true">&#9728;</span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
@@ -36,22 +63,23 @@
             <div class="hero-content reveal">
                 <div class="status-badge">
                     <span class="pulse-dot"></span>
-                    SOLANA MAINNET &middot; PILOT PROGRAM
+                    <span data-i18n="hero.badge">SOLANA MAINNET &middot; PILOT PROGRAM</span>
                 </div>
-                <h1>Real-Time Solana<br>to <span class="grad-text">Digital Settlement</span></h1>
-                <p class="subtitle">SOLQ provides non-custodial bridging for digital wallets to standard payment
-                    networks.
-                    Engineered for deterministic settlement and production-grade reliability.</p>
+                <h1 data-i18n-html="hero.title">Real-Time Solana<br>to <span class="grad-text">Digital
+                        Settlement</span></h1>
+                <p class="subtitle" data-i18n="hero.subtitle">SOLQ provides non-custodial bridging for digital wallets
+                    to standard payment networks. Engineered for deterministic settlement and production-grade
+                    reliability.</p>
                 <div class="hero-cta">
-                    <a href="#protocol" class="btn-primary">Protocol Overview</a>
-                    <a href="https://github.com/nayrbryanGaming/solq" target="_blank" class="btn-ghost">View on
-                        GitHub</a>
+                    <a href="#protocol" class="btn-primary" data-i18n="hero.cta1">Protocol Overview</a>
+                    <a href="https://github.com/nayrbryanGaming/solq" target="_blank" class="btn-ghost"
+                        data-i18n="hero.cta2">View on GitHub</a>
                 </div>
             </div>
             <div class="hero-diagram reveal">
                 <div class="hero-logo-box">
                     <img src="assets/logo_full.png" alt="SOLQ Infrastructure" class="hero-logo-img">
-                    <div class="hero-logo-tag">
+                    <div class="hero-logo-tag" data-i18n="hero.tag">
                         DESIGNED FOR MAINNET CONNECTIVITY
                     </div>
                 </div>
@@ -61,44 +89,44 @@
 
     <section id="protocol" class="section-protocol">
         <div class="container">
-            <div class="section-label">Operational Architecture</div>
-            <h2 class="reveal">Transaction Lifecycle</h2>
+            <div class="section-label" data-i18n="protocol.label">Operational Architecture</div>
+            <h2 class="reveal" data-i18n="protocol.title">Transaction Lifecycle</h2>
             <div class="steps-grid reveal">
                 <div class="step-card">
                     <div class="step-n">01</div>
-                    <h3>Secure Handshake</h3>
-                    <p>Interface with any supported Solana wallet via standard adapter protocols. Security is enforced
-                        through external cryptographic authorization.</p>
+                    <h3 data-i18n="step1.h">Secure Handshake</h3>
+                    <p data-i18n="step1.p">Interface with any supported Solana wallet via standard adapter protocols.
+                        Security is enforced through external cryptographic authorization.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-n">02</div>
-                    <h3>Payload Parsing</h3>
-                    <p>High-precision processing of payment intents. SOLQ validates structured data to ensure integrity
-                        across diverse terminal standards.</p>
+                    <h3 data-i18n="step2.h">Payload Parsing</h3>
+                    <p data-i18n="step2.p">High-precision processing of payment intents. SOLQ validates structured data
+                        to ensure integrity across diverse terminal standards.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-n">03</div>
-                    <h3>Market Discovery</h3>
-                    <p>Orchestrated oracles provide real-time market data. Built-in deviation thresholds safeguard
-                        transaction value during volatility.</p>
+                    <h3 data-i18n="step3.h">Market Discovery</h3>
+                    <p data-i18n="step3.p">Orchestrated oracles provide real-time market data. Built-in deviation
+                        thresholds safeguard transaction value during volatility.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-n">04</div>
-                    <h3>Atomic Execution</h3>
-                    <p>Proposals are routed for user signature. Execution is handled through atomic on-chain swaps for
-                        efficient asset conversion.</p>
+                    <h3 data-i18n="step4.h">Atomic Execution</h3>
+                    <p data-i18n="step4.p">Proposals are routed for user signature. Execution is handled through atomic
+                        on-chain swaps for efficient asset conversion.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-n">05</div>
-                    <h3>Low-Latency Finality</h3>
-                    <p>Direct integration with the Solana network enables rapid settlement with high-confidence on-chain
-                        confirmation.</p>
+                    <h3 data-i18n="step5.h">Low-Latency Finality</h3>
+                    <p data-i18n="step5.p">Direct integration with the Solana network enables rapid settlement with
+                        high-confidence on-chain confirmation.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-n">06</div>
-                    <h3>Settlement Verification</h3>
-                    <p>Transparent confirmation is verified against on-chain truth, providing deterministic finality for
-                        every successful payment.</p>
+                    <h3 data-i18n="step6.h">Settlement Verification</h3>
+                    <p data-i18n="step6.p">Transparent confirmation is verified against on-chain truth, providing
+                        deterministic finality for every successful payment.</p>
                 </div>
             </div>
         </div>
@@ -106,44 +134,44 @@
 
     <section id="features" class="section-dark">
         <div class="container">
-            <div class="section-label">Infrastructure</div>
-            <h2 class="reveal">Platform Capability</h2>
+            <div class="section-label" data-i18n="feat.label">Infrastructure</div>
+            <h2 class="reveal" data-i18n="feat.title">Platform Capability</h2>
             <div class="features-grid reveal">
                 <div class="feat-card">
                     <div class="feat-line"></div>
-                    <h3>Universal Connectivity</h3>
-                    <p>Cross-environment integration for mobile and desktop wallets via industry-standard bridging
-                        protocols.</p>
+                    <h3 data-i18n="feat1.h">Universal Connectivity</h3>
+                    <p data-i18n="feat1.p">Cross-environment integration for mobile and desktop wallets via
+                        industry-standard bridging protocols.</p>
                 </div>
                 <div class="feat-card">
                     <div class="feat-line"></div>
-                    <h3>Hardened Pricing</h3>
-                    <p>Multi-source verification ensures consistent market rates, utilizing enterprise-grade data
-                        providers.</p>
+                    <h3 data-i18n="feat2.h">Hardened Pricing</h3>
+                    <p data-i18n="feat2.p">Multi-source verification ensures consistent market rates, utilizing
+                        enterprise-grade data providers.</p>
                 </div>
                 <div class="feat-card">
                     <div class="feat-line"></div>
-                    <h3>Resource Optimization</h3>
-                    <p>Built for high-efficiency settlement with integrated revenue routing designed for operational
-                        scalability.</p>
+                    <h3 data-i18n="feat3.h">Resource Optimization</h3>
+                    <p data-i18n="feat3.p">Built for high-efficiency settlement with integrated revenue routing designed
+                        for operational scalability.</p>
                 </div>
                 <div class="feat-card">
                     <div class="feat-line"></div>
-                    <h3>Deterministic State</h3>
-                    <p>Strict state machine enforcement ensures every payment stage is verifiable and immune to
-                        ambiguous transitions.</p>
+                    <h3 data-i18n="feat4.h">Deterministic State</h3>
+                    <p data-i18n="feat4.p">Strict state machine enforcement ensures every payment stage is verifiable
+                        and immune to ambiguous transitions.</p>
                 </div>
                 <div class="feat-card">
                     <div class="feat-line"></div>
-                    <h3>Non-Custodial Integrity</h3>
-                    <p>Architected for total separation of concerns: users maintain sovereign control of digital assets
-                        throughout the Lifecycle.</p>
+                    <h3 data-i18n="feat5.h">Non-Custodial Integrity</h3>
+                    <p data-i18n="feat5.p">Architected for total separation of concerns: users maintain sovereign
+                        control of digital assets throughout the Lifecycle.</p>
                 </div>
                 <div class="feat-card">
                     <div class="feat-line"></div>
-                    <h3>Scalable Infrastructure</h3>
-                    <p>Optimized for high-throughput environments, featuring automated reconciliation and
-                        failure-handling workers.</p>
+                    <h3 data-i18n="feat6.h">Scalable Infrastructure</h3>
+                    <p data-i18n="feat6.p">Optimized for high-throughput environments, featuring automated
+                        reconciliation and failure-handling workers.</p>
                 </div>
             </div>
         </div>
@@ -151,32 +179,37 @@
 
     <section id="architecture" class="section-stack">
         <div class="container">
-            <div class="section-label">Core Systems</div>
-            <h2 class="reveal">Tech Stack Overview</h2>
+            <div class="section-label" data-i18n="stack.label">Core Systems</div>
+            <h2 class="reveal" data-i18n="stack.title">Tech Stack Overview</h2>
             <div class="stack-grid reveal">
                 <div class="stack-item">
-                    <div class="stack-label">Frontend</div>
-                    <div class="stack-value">Flutter Production Build · Native Intent Architecture</div>
+                    <div class="stack-label" data-i18n="stack1.k">Frontend</div>
+                    <div class="stack-value" data-i18n="stack1.v">Flutter Production Build &middot; Native Intent
+                        Architecture</div>
                 </div>
                 <div class="stack-item">
-                    <div class="stack-label">Backend</div>
-                    <div class="stack-value">Node.js Enterprise Framework · Stateless Orchestration</div>
+                    <div class="stack-label" data-i18n="stack2.k">Backend</div>
+                    <div class="stack-value" data-i18n="stack2.v">Node.js Enterprise Framework &middot; Stateless
+                        Orchestration</div>
                 </div>
                 <div class="stack-item">
-                    <div class="stack-label">Blockchain</div>
-                    <div class="stack-value">Solana Mainnet · High-Availability RPC Hub</div>
+                    <div class="stack-label" data-i18n="stack3.k">Blockchain</div>
+                    <div class="stack-value" data-i18n="stack3.v">Solana Mainnet &middot; High-Availability RPC Hub</div>
                 </div>
                 <div class="stack-item">
-                    <div class="stack-label">Swap Engine</div>
-                    <div class="stack-value">Jupiter V2 Integration · Deterministic Route Optimization</div>
+                    <div class="stack-label" data-i18n="stack4.k">Swap Engine</div>
+                    <div class="stack-value" data-i18n="stack4.v">Jupiter V2 Integration &middot; Deterministic Route
+                        Optimization</div>
                 </div>
                 <div class="stack-item">
-                    <div class="stack-label">Settlement</div>
-                    <div class="stack-value">On-Chain Finality · Real-Time Observability</div>
+                    <div class="stack-label" data-i18n="stack5.k">Settlement</div>
+                    <div class="stack-value" data-i18n="stack5.v">On-Chain Finality &middot; Real-Time Observability
+                    </div>
                 </div>
                 <div class="stack-item">
-                    <div class="stack-label">Assurance</div>
-                    <div class="stack-value">SHA-256 Audit Trails · Compliance-Minded Logging</div>
+                    <div class="stack-label" data-i18n="stack6.k">Assurance</div>
+                    <div class="stack-value" data-i18n="stack6.v">SHA-256 Audit Trails &middot; Compliance-Minded
+                        Logging</div>
                 </div>
             </div>
         </div>
@@ -186,19 +219,19 @@
         <div class="container">
             <div class="posture-grid reveal">
                 <div class="posture-col">
-                    <h3>SOLQ Is</h3>
+                    <h3 data-i18n="is.title">SOLQ Is</h3>
                     <ul>
-                        <li>A non-custodial payment orchestrator</li>
-                        <li>An infrastructure-grade bridging protocol</li>
-                        <li>Designed for deterministic enterprise settlement</li>
+                        <li data-i18n="is.1">A non-custodial payment orchestrator</li>
+                        <li data-i18n="is.2">An infrastructure-grade bridging protocol</li>
+                        <li data-i18n="is.3">Designed for deterministic enterprise settlement</li>
                     </ul>
                 </div>
                 <div class="posture-col posture-right">
-                    <h3>SOLQ Is Not</h3>
+                    <h3 data-i18n="isnot.title">SOLQ Is Not</h3>
                     <ul>
-                        <li>Not a custodian, bank, or issuer</li>
-                        <li>Not a direct payment gateway</li>
-                        <li>Not a point-of-sale terminal provider</li>
+                        <li data-i18n="isnot.1">Not a custodian, bank, or issuer</li>
+                        <li data-i18n="isnot.2">Not a direct payment gateway</li>
+                        <li data-i18n="isnot.3">Not a point-of-sale terminal provider</li>
                     </ul>
                 </div>
             </div>
@@ -209,23 +242,26 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <img src="assets/logo_full.png" alt="SOLQ Logo" class="footer-logo-img">
-                <p>Infrastructure for the Digital Economy.<br>Proprietary Pilot Release.</p>
+                <p data-i18n-html="footer.tagline">Infrastructure for the Digital Economy.<br>Proprietary Pilot Release.
+                </p>
             </div>
             <div class="footer-links-col">
-                <h4>Observability</h4>
-                <a href="https://solscan.io" target="_blank">Network Status</a>
-                <a href="https://github.com/nayrbryanGaming/solq" target="_blank">View Protocol</a>
+                <h4 data-i18n="footer.obs">Observability</h4>
+                <a href="https://solscan.io" target="_blank" data-i18n="footer.status">Network Status</a>
+                <a href="https://github.com/nayrbryanGaming/solq" target="_blank" data-i18n="footer.protocol">View
+                    Protocol</a>
             </div>
         </div>
         <div class="footer-bottom">
             <div class="container">
-                <p>&copy; 2026 SOLQ. All rights reserved. <strong>Risk Disclosure:</strong> Trading and bridging digital
-                    assets involve significant market risk. Performance depends on underlying network finality and
-                    liquidity provider availability.</p>
+                <p data-i18n-html="footer.legal">&copy; 2026 SOLQ. All rights reserved. <strong>Risk
+                        Disclosure:</strong> Trading and bridging digital assets involve significant market risk.
+                    Performance depends on underlying network finality and liquidity provider availability.</p>
             </div>
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 
